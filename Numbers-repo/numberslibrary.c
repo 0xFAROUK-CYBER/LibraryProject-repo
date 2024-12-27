@@ -5,16 +5,15 @@
 
                             //    Basic Numbers Functions                     
                
-                                                 //Calculate the sum of digits of a number
-int SumOfDigits( int num){
-                                int sum=0;
+/*Calculate the sum of digits of a number*/     int SumOfDigits( int num){
+                                 int sum=0;
                                 while(num>0){
                                     sum+=num%10;
                                     num/=10;
                                 }
                                 num=sum;
                                 return num;
-                                }     
+                                }    
                            
                                                 //Reverse a number
 int ReverseNumber( int num){
