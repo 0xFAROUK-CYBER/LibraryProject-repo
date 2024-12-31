@@ -1,5 +1,5 @@
 #                                                                  LibraryProject-repo
-                       This project includes functions for Numbers, Strings, Arrays, Matrix and extra encryption functions
+            This project includes functions for Numbers, Strings, Arrays, Matrix and extra encryption functions
 
                                         TO SEE THE NUMBERS LIBRARY   ---->   Numbers-repo
                                         TO SEE THE Strings LIBRARY   ---->   Strings-repo
