@@ -70,7 +70,6 @@ int gcd( int a, int b){
                         
                                                 //Calculate the least common multiple
 int lcm( int a, int b){
-                                 int t;
                                  return (a*b)/gcd(a,b);
 }
 
