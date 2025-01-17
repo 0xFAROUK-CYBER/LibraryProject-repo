@@ -129,7 +129,7 @@ void primeFactors(int num){
 }
 
                                                 //armstrong number
-/**/
+/*THIS FUNCTION ADDS EVERY DIGIT OF A NUMBER RAISED TO THE POWER OF 3 TO (armstrong) , THEN CHECKS IF THE PREVIOUS VARIABLE EQUALS THE ENTERED NUMBER , IF YES THEN TRUE , IF NO THEN FALSE*/
 bool isArmstrong(int num){
                                  int armstrong=0;
                                  int temp=num;
@@ -145,6 +145,7 @@ bool isArmstrong(int num){
 }
 
                                                 //Fibonacci sequence
+/*THIS PROCEDURE PRINTS (NUM)  NUMBERS IN THE FIBONACCI SEQUENCE USING THE FORMULA WRITTEN BELOW  */
 void fibonacciSeries(int num){
                                  long  fibonacci=0;
                                  printf("THE FIBONACCI SEQUENCE UNTIL %d :",num);
@@ -156,6 +157,7 @@ void fibonacciSeries(int num){
 }
                   
                                                 //Calculate te sum of divisors
+/*THIS FUNCTION SUMS ALL THE DIVISORS OF THE ENTERED NUMBER  AND RETURNS  */
 int sumDivisors(int num){
                                  int sum=num;
 
@@ -164,12 +166,14 @@ int sumDivisors(int num){
                                  sum+=i;
                                  }
                                  }
+                                 sum+=num;
                                  return sum;
 }
                
                                                 //perfect number
+/*THIS FUNCTION CHECKS */
 bool isPerfect(int num){
-                                 if( sumDivisors(num) -num  == num ){
+                                 if( sumDivisors(num) -num == num ){
                                  return true;
                                  }
                                  else {
