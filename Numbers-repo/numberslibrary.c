@@ -5,10 +5,11 @@
 
                             //    Basic Numbers Functions                     
                
-                                                //Calculate the sum of digits of a number     
+                                                //Calculate the sum of digits of a number   
+/*this function works by adding 1 to the variable (sum) and extracting last digit in the number (num) until the number becomes 0 and then it returns (sum)*/
 int SumOfDigits( int num){
                                  int sum=0;
-                                while(num>0){
+                                while(num!=0){
                                     sum+=num%10;
                                     num/=10;
                                 }
@@ -17,28 +18,31 @@ int SumOfDigits( int num){
                                 }    
                            
                                                 //Reverse a number
+/*this function works by taking the first digit (digit) of the number and adding it to (Reverse)  after multiplying (Reverse) by 10 then repeating the loop until (num) equals 0 then returning (Reverse) */
 int ReverseNumber( int num){
-                                 int sum=0 ,Reverse=0;
+                                 int digit=0 ,Reverse=0;
                                  while(num>0){
-                                 sum=num%10;
-                                 Reverse=Reverse*10+sum;
+                                 digit=num%10;
+                                 Reverse=Reverse*10+digit;
                                  num/=10;
                                  }
 
                                  return Reverse;
 } 
                                                 
-                                                //Check if palindrome                                               
+                                                //Check if palindrome      
+/*this function checks if a (num) equals its reverse (using the function ReverseNumber) then return true if yes and false if no */
 bool isPalindrome( int num){
-                                 if(num != ReverseNumber(num) ){
-                                 return false;
+                                 if(num == ReverseNumber(num) ){
+                                 return true;
                                  }
                                  else{
-                                 return true;
+                                 return false;
                                  }
 }
                          
                                                 //see if a number is prime or not
+/* this function checks if a number has a divisor between 2 and its square root , if yes then it returns false ,if no its returns true*/
 bool isPrime( int num){
                                  for(int i=2;i<=sqrt(num);i++){
                                  if(num % i == 0){
@@ -49,6 +53,7 @@ bool isPrime( int num){
 }
 
                                                 //Calculate the greatest common divisor
+/* this function uses the Euclidean algorithm to find the greatest common divisors between two numbers (if a is bigger then b then it switch them ) , this function return (GCD).*/
 int gcd( int a, int b){
                                             int GCD,t;
                                             if(a>b){
@@ -69,18 +74,20 @@ int gcd( int a, int b){
                                             }
                         
                                                 //Calculate the least common multiple
+/*THIS FUNCTION RETURNS THE FORMULA THAT FINDS THE LEAST COMMON DIVISOR BETWEEN a AND b */
 int lcm( int a, int b){
                                  return (a*b)/gcd(a,b);
 }
 
                                                 //Calculate the factorial
+/*THIS FUNCTION USES RECURSION BY MULTIPLYING (num) BY THE FACTORIAL OF (num-1)[which means it calls itself] , this function has a base case (if num equals 1 or 0 it returns 1 ) . */
 long Factorial( int num){
                                     long Fact=1;
                                     if(num == 0  || num ==1){
                                         return 1;
                                     }
                                     else if(num<0){
-                                        return -1111;
+                                        return -1;
                                     }
                                     else{
                                         return num*Factorial(num-1);
@@ -88,6 +95,7 @@ long Factorial( int num){
 }
                          
                                                 //see if the number if even or not
+/*this function checks if a number is divisible by 2 , if yes it returns true,  if no it returns false */
 bool isEven( int num){
                                  if(num % 2 == 0){
                                  return true;
@@ -99,6 +107,7 @@ bool isEven( int num){
                             //    Intermediate Numbers Functions
        
                                                 //prime factorization
+/*this function prints all the prime divisors of a number (if a number is divisible by a prime number multiple times then it will print it multiple times ,if the number given is less or equal to 1 then it will print a statement that there are no prime divisors)*/
 void primeFactors(int num){
                                  int i=2;                  // Start with the smallest prime number
                                  if (num <= 1) {
@@ -120,6 +129,7 @@ void primeFactors(int num){
 }
 
                                                 //armstrong number
+/**/
 bool isArmstrong(int num){
                                  int armstrong=0;
                                  int temp=num;
