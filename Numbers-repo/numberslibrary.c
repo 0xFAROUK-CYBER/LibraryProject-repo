@@ -475,5 +475,11 @@ return digits;
 
 }
                                                  
-                                                //calculating the combination nCr
+                                             //calculating the combination nCr
 unsigned long  Combination( int n ,int r){
+if (r > n || r < 0) {
+    return 0;
+}
+return  Factorial(n)/(Factorial(r)*Factorial(n-r));
+}
+
