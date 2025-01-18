@@ -95,7 +95,7 @@ long Factorial( int num){
 }
                          
                                                 //see if the number if even or not
-/*this function checks if a number is divisible by 2 , if yes it returns true,  if no it returns false */
+/*this function checks if a number is divisible by 2 , if yes it returns true (wich means it is even),  if no it returns false (wich means it is not  even) */
 bool isEven( int num){
                                  if(num % 2 == 0){
                                  return true;
@@ -129,7 +129,7 @@ void primeFactors(int num){
 }
 
                                                 //armstrong number
-/*THIS FUNCTION ADDS EVERY DIGIT OF A NUMBER RAISED TO THE POWER OF 3 TO (armstrong) , THEN CHECKS IF THE PREVIOUS VARIABLE EQUALS THE ENTERED NUMBER , IF YES THEN TRUE , IF NO THEN FALSE*/
+/*THIS FUNCTION ADDS EVERY DIGIT OF A NUMBER RAISED TO THE POWER OF 3 TO (armstrong) , THEN CHECKS IF THE PREVIOUS VARIABLE EQUALS THE ENTERED NUMBER , IF YES THEN TRUE (wich means it is an armstrong number) , IF NO THEN FALSE (wich means it is not  an armstrong number) */
 bool isArmstrong(int num){
                                  int armstrong=0;
                                  int temp=num;
@@ -157,7 +157,7 @@ void fibonacciSeries(int num){
 }
                   
                                                 //Calculate te sum of divisors
-/*THIS FUNCTION SUMS ALL THE DIVISORS OF THE ENTERED NUMBER  AND RETURNS  */
+/*THIS FUNCTION SUMS ALL THE DIVISORS OF THE ENTERED NUMBER  AND RETURNS the total  */
 int sumDivisors(int num){
                                  int sum=num;
 
@@ -171,7 +171,7 @@ int sumDivisors(int num){
 }
                
                                                 //perfect number
-/*THIS FUNCTION CHECKS */
+/*THIS FUNCTION CHECKS if the sum of divisors or a number excluding the number itself equals the number , if yes it returns true (wich means it is a perfect number),if no then it returns false (wich means it is not a perfect number)   */
 bool isPerfect(int num){
                                  if( sumDivisors(num) -num == num ){
                                  return true;
@@ -183,6 +183,7 @@ bool isPerfect(int num){
 }
                
                                                 //magic number
+/*this function Checks if the sum of the digits recursively equals 1 , if yes then retuns true (wich means it is  a magic number ),if no then it retuns false (wich means it is not  magic number ) */
 bool isMagic(int num){
                                  int sum =0;
                                  while(num>=10){
@@ -202,6 +203,7 @@ bool isMagic(int num){
 }
           
                                                 // check if Automorphic
+/* THIS FUNCTION CALCULATES THE NUMBER OF DIGITS OF A NUMBER BY MULTIPLYING (digit) by 10 ,then checks if the rest of division of the number squared by (digit) equals the number itself,if yes then it retuns true (wich means it is an automorphic number),if no then it retuns false (wich means it is not an automorphic number) */
 bool isAutomorphic(int num){
                                  int square=num*num;
                                  int digit=1;
@@ -225,6 +227,7 @@ bool isAutomorphic(int num){
 
                             //    Advanced Numbers Functions
                                                 //from decimal to binary conversion
+/*THIS FUNCTION CONTINUE TO DIVIDE A POSITIVE NUMBER BY 2 AND ADDS THE REST TO A NEW VARIABLE (Bin) AND MOVES THE NEXT REST TO THE LEFT (Bin) UNTIL THE REST IS 0 ,AND THEN PRINTS  THE RESULT (Bin), IF A NUMBER IS NEGATIVE :IT INFORMS AN ERROR*/
 void toBinary(int num){
                                  int Bin=0;
                                  int i=1;
@@ -238,103 +241,125 @@ void toBinary(int num){
                                  num/=2;
                                  i*=10;
                                  }
+                                 }
+                                 if(num<0){
                                  printf(" %d .\n",Bin);
                                  }
 }
        
                                                 //Narcissitic number
+/*THIS FUNCTION RAISES EVERY DIGIT OF A NUMBER TO THE POWER OF THE NUMBER OF ITS DIGITS AND SUMS THEM IN A VARIABLE (Narcissistic) ,AND THEN CHECKS IF THE SUM EQUALS THE NUMBER ITSELF ,IF YES IT RETURNS TRUE (WICH MEAN IT IS A NARCISSISTIC NUMBER ),IF NO IT RETUNS FALSE (WICH MEAN  IT IS NOT A NARCISSISTIC NUMBER )*/
 bool isNarcissistic(int num){
-                                 int digit=1;
-                                 int armstrong=0;
-                                 int temp=num;
-                                 while(num/10!=0){
-                                 digit+=1;
-                                 num/=10;
-                                 }
-                                 num=temp;
+                                 int digit=NumberOfDigits(int num) ,temp=0,Narcissistic=0;
                                  while(num!=0){
-                                 armstrong+=pow(num%10,digit);
+                                 Narcissistic+=pow(num%10,digit);
                                  num/=10;
                                  }
                                  num=temp;
-                                 if(armstrong==num){
+                                 if(Narcissistic==num){
                                  return true;
                                  }
                                  return false;
 }
 
                                                 //Calculating the Square root
+/*THIS FUNCTION RETURNS THE SQRT OF A NUMBER ( SQRT(0) =0 /SQRT(1)=1 /SQRT(NEGATIVE NUMBER) =-1 ) AND IF IT IS BIGGER THAN 1 THEN IT STARTS GUESSING USING A FORMULA ,AND IF THE DIFFERENCE BETWEEN A GUESS AND THE PREVIOUS ONE IS LESS THAN (epsilon) then it retuns the guess(x)  */
 double sqrtApprox(int num){
                                  double epsilon = 0.0001 , x=0.0 ,xPrev=0.0;
                                  if (num == 0){
-                                 x = 0;
+                                 x = 0;                   //SQRT OF ZERO IS ZERO
                                  }
                                  else if (num == 1){
-                                 x = 1;
+                                 x = 1;                   //SQRT OF ONE IS ONE
+                                 }
+                                 else if( num <0 ){
+                                 x=-1;                    //SQRT OF A NEGATIVE NUMBER DOES NOT EXIST
+                                 }
+                                 else{                   //IF A NUMBER IS BIGGER THAN 1
+                                 x =num/2;                /* initial guess OF A SQRT*/
+                                 xPrev = 0;               
+                                 do {
+                                 xPrev = x;              //X BECOMES THE PREVIOUS GUESS
+                                 x = (xPrev + num/xPrev)/2;          //THE NEW SQRT GUESS
+                                 }while (abs(x - xPrev) > epsilon);    //WHILE THE DIFFERENCE BETWEEN THE TWO GUESSES IS STRICTLY BIGGER THAN EPSILOM
                                  }
 
-                                 else if (num>0){
-                                 x =num/2;            /* initial guess */
-                                 xPrev = 0;
-                                 do {
-                                 xPrev = x;
-                                 x = (xPrev + num/xPrev)/2;
-                                 }while (abs(x - xPrev) > epsilon);
-                                 }
-                                 else{
-                                 x=-1111;
-                                 }
-                                 return  x ;
+                                 return  x ;                   //RETURNS THE SQRT 
 }
 
                                                 //Calculating the power
-double power(int base, int exp){
-                                 double pow =1;
-                                 int T=1;
-                                 if(base == 0){                        //handling the base 0
-                                 if(exp >0){
-                                 pow = 0;
-                                 }
-                                 else{
-                                 pow = -1111;
-                                 }
-                                 }
-                                 else{
-                                 if( exp < 0){
-                                 exp=-exp;
-                                 T=0;             //TO MARK THAT EXP WAS NEGATIVE
-                                 }
-                                 for(int i=1;i<=exp;i++){   //calculating the power
-                                 pow*=(base);
-                                 }
-                                 if( T== 0){              //to calclulate the power if the exp was negative
-                                 pow=1/pow;
-                                 }
-                                 }
-                                 return pow ;
-}
+/* Function to calculate the power of a base raised to an exponent */
+double power(int base, int exp) {
+                                double pow = 1;  // Variable to store the result of the power calculation
+                                int T = 1;       // Flag to mark if the exponent was initially negative
+
+                               // Handle the case where the base is 0
+                               if (base == 0) {
+                               if (exp > 0) {
+                               pow = 0;  // Any positive power of 0 is 0
+                               } 
+                               else {
+                               pow = -1111;  // Return a special value to signify an undefined result (e.g., 0^0 or 0^negative)
+                               }
+                               }
+                         
+                               else {
+                              // If the exponent is negative, convert it to positive for calculation
+                              if (exp < 0) {
+                              exp = -exp;
+                              T = 0;  // Mark that the exponent was initially negative
+                              }
+
+                             // Calculate the power for positive exponent
+                             for (int i = 1; i <= exp; i++) {
+                             pow *= base;  // Multiply the base 'exp' times
+                             }
+
+                            // If the exponent was negative, take the reciprocal of the result
+                            if (T == 0) {
+                            pow = 1 / pow;  // Compute the result for a negative exponent
+                            }
+                            }
+
+                           return pow;  // Return the calculated power
+                            }
+
 
                                                 //Happy Number
-bool isHappy(int num){
-                                 int sum=0;
-                                 if(num<10){
-                                 num=power(num,2);
-                                 }
-                                 while(num >=10){
-                                 sum=0;
-                                 while(num>0){
-                                 sum+=power(num%10,2);
-                                 num/=10;
-                                 }
-                                 num=sum;
-                                 }
-                                 if(num ==1){
-                                 return true ;
-                                 }
-                                 else{
-                                 return false;
-                                 }
-}
+// Function to determine if a number is a "happy number"
+// A happy number is defined as a number that eventually reaches 1 
+// when replaced by the sum of the squares of its digits repeatedly.
+bool isHappy(int num) {
+                          int sum = 0;  // Variable to store the sum of the squares of the digits
+
+                          // If the number is a single digit, square it
+                          if (num < 10) {
+                          num = power(num, 2);  // Reuse the power function to calculate the square of the number
+                          }
+
+                         // Repeat the process until the number becomes a single digit
+                          while (num >= 10) {
+                         sum = 0;  // Reset the sum for the next iteration
+
+                         // Calculate the sum of the squares of the digits of the current number
+                         while (num > 0) {
+                         sum += power(num % 10, 2);  // Square the last digit and add it to the sum
+                         num /= 10;                  // Remove the last digit
+                         }
+
+                        // Update the number with the calculated sum
+                        num = sum;
+                        }
+
+                      // Check if the resulting single-digit number is 1
+                      if (num == 1) {
+                      return true;  // The number is happy
+                      } 
+                      else {
+                      return false;  // The number is not happy
+                      }
+                      }
+
                                  
                                                 //Abundant NUMBER
 bool isAbundant(int num){
