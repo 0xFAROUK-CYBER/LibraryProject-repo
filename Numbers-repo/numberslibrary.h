@@ -56,6 +56,8 @@ unsigned long bellNumber(int n);
 bool isKaprekar(int num);
 bool isSmith(int num);
 int sumOfPrimes(int n);
+
+//Extra
 int NumberOfDigits(int num);
 unsigned long  Combination( int n ,int r);
 
