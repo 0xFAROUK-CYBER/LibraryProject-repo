@@ -4,6 +4,7 @@
 #include<math.h>
 #include <stdbool.h>
 
+// Basic Functions
 
 int SumOfDigits( int num);
 int ReverseNumber( int num);
@@ -13,49 +14,35 @@ int gcd( int a, int b);
 int lcm( int a, int b);
 long Factorial( int num);
 bool isEven( int num);
+
+// Intermediate Functions
 void primeFactors(int num);
 bool isArmstrong(int num);
 void fibonacciSeries(int num);
 int sumDivisors(int num);
 bool isPerfect(int num);
-bool isMagic(int num);
+bool isMagic(int number);
 bool isAutomorphic(int num);
+
+
+
+// Advanced Functions
 void toBinary(int num);
 bool isNarcissistic(int num);
 double sqrtApprox(int num);
 double power(int base, int exp);
-bool isHappy(int num);
+bool isHappy(int num) ;
 bool isAbundant(int num);
 bool isDeficient(int num);
-int sumEvenFibonacci(int n);
-
-
-//intermediate
-
-void primeFactors(int num);
-bool isArmstrong(int num);
-void fibonacciSeries(int num);
-int sumDivisors(int num);
-bool isPerfect(int num);
-bool isMagic(int num);
-bool isAutomorphic(int num);
-
-//advanced
-void toBinary(int num);
-bool isNarcissistic(int num);
-double sqrtApprox(int num);
-double power(int base, int exp);
-bool isHappy(int num);
-bool isAbundant(int num);
-bool isDeficient(int num);
-int sumEvenFibonacci(int n);
+long sumEvenFibonacci(int num);
 bool isHarshad(int num);
 unsigned long catalanNumber(int n);
-void pascalTriangle(int n);
+void printPascalTriangle(int n) ;
 unsigned long bellNumber(int n);
 bool isKaprekar(int num);
 bool isSmith(int num);
 int sumOfPrimes(int n);
+
 
 //Extra
 int NumberOfDigits(int num);
