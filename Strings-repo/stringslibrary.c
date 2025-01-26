@@ -303,26 +303,36 @@ str[length]='\0'; // Null-terminate the modified string
                                                 //String Compression 
 /* This function iterates through the input string and compresses repeated characters.
  * For example, "aaabbc" becomes "a3b2c"*/
-void compressString(char* str, char* result){
-int counter=1 ;   // Counter for consecutive characters
-int i=0,j=0;       // Indices for input and result strings
-int length=stringLength(str);
-while(i<length-1){
-result[j]=str[i];          // Add the current character to the result
-  
-while(str[i]==str[i+1]){
-counter++;                //incrementing the counter
-i++;                      //moving to the next index
-}
-if(counter != 1){
- j++;                  //moving to the next index
-result[j]=counter;    //add the number of repititions
-}
-j++;     //move to the next index
-i++;    //move to the next index
-}
-result[j]='\0';
-}
+void compressString(char* str, char* result) {  
+    int counter = 1; // Counter for consecutive characters  
+    int i = 0, j = 0; // Indices for input and result strings  
+    int length = stringLength(str); // Get the length of the input string  
+
+      while (i < length) {  
+        result[j++] = str[i]; // Add the current character to the result  
+
+                            // Count occurrences of the current character  
+        while (i < length - 1 && str[i] == str[i + 1]) {  
+            counter++;      // Incrementing the counter for duplicates  
+            i++;            // Moving to the next index  
+        }  
+
+        // If counter is greater than 1, add it to the result  
+        if (counter > 1) {  
+            if (counter < 10) { // Single digit  
+                result[j++] = counter + '0'; // Convert to char and store  
+            } else { // Two digits  
+                result[j++] = (counter / 10) + '0'; // Tens place  
+                result[j++] = (counter % 10) + '0'; // Units place  
+            }  
+        }  
+
+        counter = 1; // Reset counter for the next character  
+        i++; // Move to the next character  
+    }  
+    
+    result[j] = '\0'; // Null-terminate the result string  
+}  
 
                                                 //Find Longest Word
 /* This function iterates through the input string, extracting words composed of alphabetic characters.
@@ -362,39 +372,44 @@ void longestWord(char* str, char* result) {
 }
 
                                                 //String Rotation Check 
+/* * Function to check if one string is a rotation of another.  
+ * A string 'str2' is a rotation of 'str1' if it can be obtained   
+ * by moving characters from the beginning of 'str1' to its end*/
 bool isRotation(char* str1, char* str2){
-
+   // Calculate the lengths of both strings
 int length1=stringLength(str1) ,    length2=stringLength(str2);
-char strRotated[ 2*length1 +1 ];
+char strRotated[ 2*length1 +1 ]; // Create a temporary string that is double the size of str1  
 
-
+ // If the lengths of the two strings are not the same, they cannot be rotations
 if (length1 != length2) {
-    return false;
+    return false; // Return false if lengths are different 
 }
 
 //stringCopy and Concatenate 
-
+  // Construct the rotated string by concatenating str1 with itself
  for(int i=0 ; i< length1 ;i++){
-    strRotated[i] = str1[i];
-    strRotated[i + length1] = str1[i];
+    strRotated[i] = str1[i]; // First half is str1
+    strRotated[i + length1] = str1[i]; // Second half is str1  
                        }
-strRotated[ 2*length1 ] ='\0';
+strRotated[ 2*length1 ] ='\0';  // Null-terminate the concatenated string
  
-
- // checking if str2 is a rotation of str1
+   // Check if str2 is a substring of the concatenated string  
   return findSubstring(strRotated,str2) != -1;
 
 }
                                           
                                                 //Count Specific Character 
+// Function to count the occurrences of a specified character in a string
 int countChar(const char* str, char ch){
-        int COUNTER = 0;
+        int COUNTER = 0; // Initialize a counter to zero
+   // Loop through each character in the string
     for (int i = 0; i < stringLength(str); i++) {
+      // Check if the current character matches the specified character
         if (str[i] == ch) {
-            COUNTER++;
+            COUNTER++; // Increment the counter if there's a match  
         }
     }
-    return COUNTER;
+    return COUNTER;  // Return the final count 
 }
                                       
                                                 //Find and Replace 
