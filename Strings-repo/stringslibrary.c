@@ -480,6 +480,10 @@ void printPermutations(char* str){
 int length=stringLength(str); // Get the length of the string
 char strcopy[100]={"\0"};     // Create a copy of the input string
 stringCopy(strcopy,str);
+if (length == 0) {
+    printf("Empty string has no permutations.\n");
+    return;
+}
                               // Generate and print each rotation
 for(int i=1;i<=length;i++){
 printf("  \n   rotation %d : \" %s\" ",i,strcopy); // Print the current rotation
