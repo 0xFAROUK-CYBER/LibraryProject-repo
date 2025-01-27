@@ -2,6 +2,49 @@
 #include<stdbool.h>
 #include<math.h>
 
+                            //    Extra Numbers Functions
+
+                                                //calculating the number of digits
+// Counts and returns the number of digits in the given integer
+int NumberOfDigits(int num){
+int digits=0 ;  // Initialize the digit count to 0
+
+        // Special case: If the number is 0, it has exactly 1 digit
+if (num == 0){
+    return 1;
+}
+
+  // Loop to count the digits
+while(num!=0){
+digits+=1 ; // Increment the digit counter
+num/=10 ; // Remove the last digit by dividing the number by 10
+}
+return digits ; // Return the total count of digits
+
+}
+                                                 
+                                             //calculating the combination nCr
+// Calculates the number of ways to choose r items from a set of n items
+int  Combination( int n ,int r){
+
+// Check for invalid input:
+// - r should not exceed n (r > n is invalid)
+// - r and n should not be negative
+if (r > n || r < 0 ) {
+    return 0;
+}
+  
+// Calculate the combination using the formula:
+// C(n, r) = n! / (r! * (n - r)!)
+return  Factorial(n)/(Factorial(r)*Factorial(n-r));
+}
+
+int absolute(int num){
+  if(num<0){
+    num=num*(-1);
+  }
+  return num;
+}
 
                             //    Basic Numbers Functions                     
                
@@ -596,47 +639,5 @@ int sumOfPrimes(int n){
                                  return sum ; // Return the total sum of prime numbers 
 }
 
-                            //    Extra Numbers Functions
 
-                                                //calculating the number of digits
-// Counts and returns the number of digits in the given integer
-int NumberOfDigits(int num){
-int digits=0 ;  // Initialize the digit count to 0
-
-        // Special case: If the number is 0, it has exactly 1 digit
-if (num == 0){
-    return 1;
-}
-
-  // Loop to count the digits
-while(num!=0){
-digits+=1 ; // Increment the digit counter
-num/=10 ; // Remove the last digit by dividing the number by 10
-}
-return digits ; // Return the total count of digits
-
-}
-                                                 
-                                             //calculating the combination nCr
-// Calculates the number of ways to choose r items from a set of n items
-int  Combination( int n ,int r){
-
-// Check for invalid input:
-// - r should not exceed n (r > n is invalid)
-// - r and n should not be negative
-if (r > n || r < 0 ) {
-    return 0;
-}
-  
-// Calculate the combination using the formula:
-// C(n, r) = n! / (r! * (n - r)!)
-return  Factorial(n)/(Factorial(r)*Factorial(n-r));
-}
-
-int absolute(int num){
-  if(num<0){
-    num=num*(-1);
-  }
-  return num;
-}
 
