@@ -74,7 +74,7 @@ int stringCompare(const char* str1, const char* str2) {
  * 1. If the string pointer is `NULL` (indicating no valid string exists).
  * 2. If the first character of the string is the null terminator (`\0`), indicating an empty string*/
 bool isEmpty(char* str){
-return *str =='\0'||str == NULL; // Check if the string is null or starts with the null terminator(ADDED THEN NULL CHECK TO MAKE THE FUNCTION MORE ROBUST AS THE STRING CAN BE ENTERED Uninitialized)
+return str == NULL||*str =='\0'// Check if the string is null or starts with the null terminator(ADDED THEN NULL CHECK TO MAKE THE FUNCTION MORE ROBUST AS THE STRING CAN BE ENTERED Uninitialized)
 }
 
                                                 //Reverse a String
