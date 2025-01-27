@@ -1,20 +1,23 @@
 #include<stdio.h>
-#include<stringslibrary.h>
+#include <windows.h>  // For Sleep() function
+#include"stringslibrary.h"
 void selector_of_string();
 void testStringFunctions(choice);
 
 
 
-int main(){
+int main() {
     int choice;
-     do{
-     selector_of_string() ;
-        printf("Enter your choice (0-24): ");  
-        scanf("%d", &choice);  
-     testStringFunctions(choice);
-     } while (choice != 0);
+    do {
+        selector_of_string();
+        printf("Enter your choice (0-24): ");
+        scanf("%d", &choice);
+        testStringFunctions(choice);
+        Sleep(13000);  // Wait for 13 seconds (Windows)
+        system("cls"); // Clear the console screen (Windows)
+    } while (choice != 0);
 
-return 0;
+    return 0;
 }
 
 
@@ -207,13 +210,16 @@ void testStringFunctions(choice) {
                 printf("Count of '%c': %d\n", ch, countChar(str, ch));  
                 break;  
             case 21:  
-                printf("Enter a string: ");  
-                scanf("%s", str);  
-                printf("Enter substring to find: ");  
-                scanf("%s", find);  
-                printf("String after find and replace: ");  
-                printf("%s\n", findAndReplace(str, find, replace));  
-                break;  
+            case 21:
+                printf("Enter a string: ");
+                scanf("%s", str);
+                printf("Enter substring to find: ");
+                scanf("%s", find);
+                printf("Enter replacement string: ");  
+                scanf("%s", replace);                  
+                findAndReplace(str, find, replace);
+                printf("String after find and replace: %s\n", str);
+                break;
             case 22:  
                 printf("Enter a string: ");  
                 scanf("%s", str);  
