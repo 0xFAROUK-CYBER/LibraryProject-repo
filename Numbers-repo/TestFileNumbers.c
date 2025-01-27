@@ -2,7 +2,7 @@
 #include <windows.h>  // For Sleep() function
 #include"numberslibrary.h"
 void selector_of_basic();
-void testFunctions(choice);
+void testFunctions( int choice);
 
 
 
@@ -15,7 +15,7 @@ int main(){
      testFunctions(choice) ;
          Sleep(13000);  // Wait for 13 seconds (Windows)
         system("cls"); // Clear the console screen (Windows)
-     } while (choice != 0);
+     } while (choice != 0 || choice < 0);
 
 return 0;
 
@@ -71,7 +71,7 @@ void selector_of_basic() {
 }
 
 
-void testFunctions(choice) {   
+void testFunctions( int choice) {   
 
         int num, num1, num2, base, exp, r;  
 
@@ -236,7 +236,7 @@ void testFunctions(choice) {
             case 32:  
                 printf("Enter n and r (n r): ");  
                 scanf("%d %d", &num1, &r);  
-                printf("Combination of %d and %d: %lu\n", num1, r, Combination(num1, r));  
+                printf("Combination of %d and %d: %d\n", num1, r, Combination(num1, r));  
                 break;  
             case 0:  
                 printf("Exiting the program...\n");  
