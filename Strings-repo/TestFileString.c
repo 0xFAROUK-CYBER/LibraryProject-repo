@@ -2,7 +2,7 @@
 #include <windows.h>  // For Sleep() function
 #include"stringslibrary.h"
 void selector_of_string();
-void testStringFunctions(choice);
+void testStringFunctions( int choice);
 
 
 
@@ -69,7 +69,7 @@ void selector_of_string() {
 
 
 
-void testStringFunctions(choice) {  
+void testStringFunctions( int choice) {  
         char str[100], result[100], find[100], replace[100];  
         int vowels, consonants;  
 
