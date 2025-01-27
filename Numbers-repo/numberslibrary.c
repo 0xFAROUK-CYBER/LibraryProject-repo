@@ -333,7 +333,7 @@ double sqrtApprox(int num){
                                  do {
                                  xPrev = x;              // Store the previous guess
                                  x = (xPrev + num/xPrev)/2;          // Update the guess using the Newton-Raphson formula
-                                 }while (abs(x - xPrev) > epsilon);    // Continue until the difference is within tolerance
+                                 }while (absolute(x - xPrev) > epsilon);    // Continue until the difference is within tolerance
                                  }
 
                                  return  x ; // Return the approximated square root 
@@ -499,7 +499,7 @@ void printPascalTriangle(int n) {
                                  }
                                  // Print values in the row n
                                  for (int j = 0; j <= i; j++) {
-                                 printf("%4ld", combination(i, j)) ;  // Print each combination value
+                                 printf("%d", combination(i, j)) ;  // Print each combination value
                                  }
                                  printf("\n") ; // Move to the next row
                                  }
@@ -619,17 +619,24 @@ return digits ; // Return the total count of digits
                                                  
                                              //calculating the combination nCr
 // Calculates the number of ways to choose r items from a set of n items
-unsigned long  Combination( int n ,int r){
+int  Combination( int n ,int r){
 
 // Check for invalid input:
 // - r should not exceed n (r > n is invalid)
 // - r and n should not be negative
-if (r > n || r < 0  {
+if (r > n || r < 0 ) {
     return 0;
 }
   
 // Calculate the combination using the formula:
 // C(n, r) = n! / (r! * (n - r)!)
 return  Factorial(n)/(Factorial(r)*Factorial(n-r));
+}
+
+int absolute(int num){
+  if(num<0){
+    num=num*(-1);
+  }
+  return num;
 }
 
