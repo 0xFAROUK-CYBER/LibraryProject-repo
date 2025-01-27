@@ -4,6 +4,12 @@
 #include<math.h>
 #include <stdbool.h>
 
+//Extra
+int NumberOfDigits(int num);
+int Combination( int n ,int r);
+int absolute(int num);
+
+
 // Basic Functions
 
 int SumOfDigits( int num);
@@ -44,8 +50,6 @@ bool isSmith(int num);
 int sumOfPrimes(int n);
 
 
-//Extra
-int NumberOfDigits(int num);
-unsigned long  Combination( int n ,int r);
+
 
 #endif //  NUMBERSLIBRARY_H_INCLUDED
