@@ -15,7 +15,7 @@ int main() {
         testStringFunctions(choice);
         Sleep(13000);  // Wait for 13 seconds (Windows)
         system("cls"); // Clear the console screen (Windows)
-    } while (choice != 0);
+    } while (choice != 0 || choice < 0);
 
     return 0;
 }
