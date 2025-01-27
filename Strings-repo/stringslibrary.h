@@ -1,5 +1,5 @@
-#ifndef STRINGLIBRRY_H_INCLUDED
-#define STRINGLIBRRY_H_INCLUDED
+#ifndef STRINGSLIBRARY_H_INCLUDED
+#define STRINGSLIBRARY_H_INCLUDED
  #include<stdio.h>
  #include<stdbool.h>
 
@@ -42,4 +42,4 @@
 /*stringRotation*/                              void stringRotation(char* str);
 
 
-#endif // STRINGLIBRRY_H_INCLUDED
+#endif // STRINGSLIBRARY_H_INCLUDED
