@@ -561,6 +561,9 @@ unsigned long bellNumber(int n){
                                  if( n==0){
                                  return 1;
                                  }
+                                 else if(n < 0){
+                                   return -1 ; //Error for invalid inputs
+                                 }
                                    // Recursive calculation of the nth Bell number
                                  for(int k=0 ; k < n ; k++){
                                    // Use the formula:
