@@ -227,6 +227,10 @@ bool isArmstrong(int num){
 // Function to print the Fibonacci sequence up to a given number of terms
 void fibonacciSeries(int num){
                                  long  fibonacci=0 ;  // Variable to store each Fibonacci number
+                                 if(num<0){
+                                    printf("ERROR !! invalid input");
+                                   return;
+                                 }
                                  printf("THE FIBONACCI SEQUENCE UNTIL %d :",num);
                                   // Loop through numbers from 0 to num to calculate and print each Fibonacci term
                                  for(int i=0;i<=num ;i++){
