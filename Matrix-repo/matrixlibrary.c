@@ -144,17 +144,20 @@ void transposeMatrix(int rows, int cols, int matrix[rows][cols],int result[rows]
 
 int determinantMatrix(int size, int matrix[size][size]){
     int det = 0;
+//case handling for 1 sized and 2 sized matrices
     if (size == 1) {
         return matrix[0][0];
-    } else if (size == 2) {
+    }
+    else if (size == 2) {
         return (matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0]);
     } else {
-        int temp[size][size];
+        int temp[size - 1][size - 1]; 
         int sign = 1;
+
         for (int f = 0; f < size; f++) {
             int subi = 0;
-            for (int i = 1; i < size; i++) {
-                int subj = 0;
+            for (int i = 1; i < size; i++) { 
+                int subj = 0; 
                 for (int j = 0; j < size; j++) {
                     if (j == f) {
                         continue;
@@ -168,43 +171,43 @@ int determinantMatrix(int size, int matrix[size][size]){
             sign = -sign;
         }
     }
+
     return det;
 }
 void inverseMatrix(int size, double matrix[size][size], double result[size][size]) {
-    if(determinantMatrix(size, matrix) == 0){ //meaning the determinant didn't change it's value 
-    // after the operations of determinantMatrix, thus not being invertible
-        printf("The matrix is not invertible, try with another matrix\n");
-        return;
-    }
+    //We can also check if the matrix is invertible by calculating the determinant and checking 
+    //whether it is 0 or not, but in this case the matrix type is a double so we'd need to cast 
+    // the matrix to an integer first so we can use the determinantMatrix function
 
-    double identityMatrix[size][size*2]; // Create a temporary matrix to store the identity matrix
+
+    double identityMatrixRep[size][size*2]; // Create a temporary matrix to store the identity matrix
     for(int i = 0; i < size;i++){
         for(int j = 0; j < size; j++){
-            identityMatrix[i][j] = matrix[i][j]; //storing the og matrix in the first half of the matrix
+            identityMatrixRep[i][j] = matrix[i][j]; //storing the og matrix in the first half of the matrix
         }
         for(int j = size; j < size*2; j++){
             if(j == i + size){ //if the column is equal to the row + the size of the matrix (second half)
-                identityMatrix[i][j] = 1; /*storing the identity matrix in the second half of the matrix
+                identityMatrixRep[i][j] = 1; /*storing the identity matrix in the second half of the matrix
                 instead of using if else statements, we can use a ternary operator like: 
-                identityMatrix[i][j] = (j == i + size)  ; the ? checks if true, the
+                identityMatrixRep[i][j] = (j == i + size)  ; the ? checks if true, the
                 : operator sets the value to 0 if not*/
             }else{
-                identityMatrix[i][j] = 0;
+                identityMatrixRep[i][j] = 0;
             }
         }
         for(int i = 0; i < size; i++){
-            double pivot = identityMatrix[i][i]; // this will store the pivot row elements
+            double pivot = identityMatrixRep[i][i]; // this will store the pivot row elements
             // the pivot is the half part of the matrix
             // it is used to later divide the rows by the pivot
             for (int j = 0; j < size*2; j++) {
-                identityMatrix[i][j] /= pivot; //dividing the row by the pivot
+                identityMatrixRep[i][j] /= pivot; //dividing the row by the pivot
             }
             //after finding the pivot and dividing, we delete the other values that arent in the pivot row
             for(int o = 0; o < size; o++){
                 if(o != i){
-                    double valueNotPivot = identityMatrix[o][i];
+                    double valueNotPivot = identityMatrixRep[o][i];
                     for(int j = 0; j < size*2; j++){
-                        identityMatrix[o][j] -= valueNotPivot*identityMatrix[i][j]; //deleting the values that are not pivots
+                        identityMatrixRep[o][j] -= valueNotPivot*identityMatrixRep[i][j]; //deleting the values that are not pivots
                     }
                 }
             }
@@ -212,9 +215,9 @@ void inverseMatrix(int size, double matrix[size][size], double result[size][size
 
     }
 
-    for (int i = 0; i < size; i++) {
+    for (int k = 0; k < size; k++) {
         for (int j = 0; j < size; j++) {
-            result[i][j] = identityMatrix[i][j + size];
+            result[k][j] = identityMatrixRep[k][j + size];
         }
 }
 }
@@ -257,12 +260,13 @@ void adjointMatrix(int size, int matrix[size][size], int adjoint[size][size]){ /
 // is basically the transpose of the cofactor of that matrix, thus we can simply use 
 // the 2 function calls here
 
-int theCofactor[size][size] = cofactorMatrix(size, matrix, cofactor);
-adjoint[size][size] = transposeMatrix(size, theCofactor, transpose);
+int theCofactor[size][size];
+cofactorMatrix(size, matrix, theCofactor);
+transposeMatrix(size, size, theCofactor, adjoint);
 }
 
 
-int matrixRank(int size, int matrix[rows][cols], int rank){
+int matrixRank(int rows, int cols, int matrix[rows][cols], int rank){
     if(rows == cols){ //meaning the matrix is a square matrix, thus we can simply calculate
     /* the largest determinant for the square submatrices inside the og matrix*/
 
@@ -281,7 +285,7 @@ void swap(int *x, int *y){ //used fin the rotate matrix (which we have dealt wit
 void rotateMatrix90(int size, int matrix[size][size]){
      for(int i = 0; i< size ; i++){
      for(int j = 0 ; j<size / 2; j++){
-        swap(&mat[i][j], &mat[i][n-j-1]);
+        swap(&matrix[i][j], &matrix[i][size-j-1]);
      }
    }
 }
