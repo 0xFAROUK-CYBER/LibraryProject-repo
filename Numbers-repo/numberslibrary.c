@@ -611,7 +611,7 @@ bool isSmith(int num){
 
                                 // Edge case: Smith numbers must be composite; handle 0, 1, and prime numbers
                                 if (num <= 1 || isPrime(num)) {
-                                    return false; // 0, 1, and prime numbers cannot be Smith numbers
+                                    return false; // 0, 1,Negative and prime numbers cannot be Smith numbers
                                 }
 
                                 // Factorize the number and calculate the sum of the digits of the prime factors
