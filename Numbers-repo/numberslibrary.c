@@ -22,22 +22,8 @@ num/=10 ; // Remove the last digit by dividing the number by 10
 return digits ; // Return the total count of digits
 
 }
-                                                 
-                                             //calculating the combination nCr
-// Calculates the number of ways to choose r items from a set of n items
-int  Combination( int n ,int r){
 
-// Check for invalid input:
-// - r should not exceed n (r > n is invalid)
-// - r and n should not be negative
-if (r > n || r < 0 ) {
-    return 0;
-}
-  
-// Calculate the combination using the formula:
-// C(n, r) = n! / (r! * (n - r)!)
-return  Factorial(n)/(Factorial(r)*Factorial(n-r));
-}
+
 
 int absolute(int num){
   if(num<0){
@@ -46,21 +32,21 @@ int absolute(int num){
   return num;
 }
 
-                            //    Basic Numbers Functions                     
-               
-                                                //Calculate the sum of digits of a number   
+                            //    Basic Numbers Functions
+
+                                                //Calculate the sum of digits of a number
 // Function to calculate the sum of digits of a given number
 int SumOfDigits( int num){
                                  int sum=0;       // Initialize sum to store the sum of digits
-  
+
                                                   // Loop to extract and sum each digit of the number
                                 while(num!=0){
                                     sum+=num%10 ; // Extract the last digit and add it to sum
                                     num/=10 ;     // Remove the last digit from the number
                                 }
                                 return sum;       // Return the sum of digits
-                         }    
-                           
+                         }
+
                                                 //Reverse a number
 // Function to reverse the digits of a given number
 int ReverseNumber( int num){
@@ -76,14 +62,14 @@ int ReverseNumber( int num){
                                  }
 
                                  return Reverse;     // Return the reversed number
-                            } 
-                                                
-                                                //Check if palindrome      
+                            }
+
+                                                //Check if palindrome
 // Function to check if a number is a palindrome
 bool isPalindrome( int num){
                                            // A negative number cannot be a palindrome
-                                  if (num < 0) return false; 
-    
+                                  if (num < 0) return false;
+
                                             // Compare the number with its reversed version
                                   if (num == ReverseNumber(num)) {
                                   return true;  // If equal, it's a palindrome
@@ -92,7 +78,7 @@ bool isPalindrome( int num){
                                   return false; // If not equal, it's not a palindrome
                                   }
                             }
-                         
+
                                                 //see if a number is prime or not
 // Function to check if a number is prime
 bool isPrime( int num){
@@ -110,7 +96,7 @@ bool isPrime( int num){
 
                                   return true; // If no divisors found, num is prime
                        }
-                                 
+
 
 
                                                 //Calculate the greatest common divisor
@@ -138,7 +124,7 @@ int gcd( int a, int b){
                               // Return 'a' when 'b' becomes 0 (final GCD result)
                                         return a;
                         }
-                        
+
                                                 //Calculate the least common multiple
 // Function to compute the Least Common Multiple (LCM)
 int lcm( int a, int b){
@@ -164,7 +150,22 @@ long Factorial( int num){
                                         return num*Factorial(num-1);
                                     }
 }
-                         
+             //EXTRA FUNCTION                                //calculating the combination nCr
+// Calculates the number of ways to choose r items from a set of n items
+int Combination( int n ,int r){
+
+// Check for invalid input:
+// - r should not exceed n (r > n is invalid)
+// - r and n should not be negative
+if (r > n || r < 0 ) {
+    return 0;
+}
+
+// Calculate the combination using the formula:
+// C(n, r) = n! / (r! * (n - r)!)
+return  Factorial(n)/(Factorial(r)*Factorial(n-r));
+}
+
                                                 //see if the number if even or not
 // Function to check if a given number is even
 bool isEven( int num){
@@ -178,7 +179,7 @@ bool isEven( int num){
 
 
                             //    Intermediate Numbers Functions
-       
+
                                                 //prime factorization
 // Function to find and print the prime factors of a given number
 void primeFactors(int num){
@@ -196,7 +197,7 @@ void primeFactors(int num){
                                        }
                                      }
                                      i+=1;                        // Move to the next number
-                                   } 
+                                   }
                                   printf("\n");
                                  }
 }
@@ -236,7 +237,7 @@ void fibonacciSeries(int num){
                                  }
                                  printf("\n");
 }
-                  
+
                                                 //Calculate te sum of divisors
 // Function to calculate the sum of all divisors of a given number
 int sumDivisors(int num){
@@ -252,7 +253,7 @@ int sumDivisors(int num){
                                  // Return the total sum of divisors
                                  return sum;
 }
-               
+
                                                 //perfect number
 // Function to check if a given number is a perfect number
 bool isPerfect(int num){
@@ -266,14 +267,14 @@ bool isPerfect(int num){
 
                                  }
                        }
-               
+
                                                 //magic number
 // Function to check if a given number is a magic number
 bool isMagic(int number){
                                  // Repeat the process until the number is reduced to a single digit
                                  while(number>=10){
                                  // Calculate the sum of digits of the number
-                                 number=SumOfDigits(number); //Assign the sum of digits to num 
+                                 number=SumOfDigits(number); //Assign the sum of digits to num
                                  }
                                 // Check if the resulting single-digit number is 1
                                  if(number ==1){
@@ -283,7 +284,7 @@ bool isMagic(int number){
                                  return false ; // The number is not a magic number
                                  }
 }
-          
+
                                                 // check if Automorphic
 /* THIS FUNCTION CALCULATES THE NUMBER OF DIGITS OF A NUMBER BY MULTIPLYING (digit) by 10 ,then checks if the rest of division of the number squared by (digit) equals the number itself,if yes then it retuns true (wich means it is an automorphic number),if no then it retuns false (wich means it is not an automorphic number) */
 bool isAutomorphic(int num){
@@ -323,16 +324,16 @@ void toBinary(int num){
                                  printf(" ERROR .\n") ; // Print error message for negative numbers
                                   return ; //To exit the function
                                  }
-  
+
                                  while(num > 0){
                                  Bin=Bin+(num%2)*i ; // Extract the last binary digit and add it to 'Bin'
                                  num/=2 ;           // Divide the number by 2 to process the next bit
                                  i*=10 ;            // Update the multiplier for the next binary place
                                  }
                                  printf(" %d .\n",Bin);    // Print the binary representation
-                                 
+
 }
-       
+
                                                 //Narcissitic number
 // Function to check if a number is Narcissistic
 bool isNarcissistic(int num){
@@ -371,9 +372,9 @@ double sqrtApprox(int num){
                                  }
 
                                   //IF A NUMBER IS GREATER THAN 1
-                                 else{                   
+                                 else{
                                  x =num/2;                // initial guess OF A SQRT
-                                 xPrev = 0;               
+                                 xPrev = 0;
 
                                   // Iteratively improve the guess until the difference between guesses is within epsilon
                                  do {
@@ -382,7 +383,7 @@ double sqrtApprox(int num){
                                  }while (absolute(x - xPrev) > epsilon);    // Continue until the difference is within tolerance
                                  }
 
-                                 return  x ; // Return the approximated square root 
+                                 return  x ; // Return the approximated square root
 }
 
                                                 //Calculating the power
@@ -395,12 +396,12 @@ double power(int base, int exp) {
                                if (base == 0) {
                                if (exp > 0) {
                                pow = 0;  // Any positive power of 0 is 0
-                               } 
+                               }
                                else {
                                pow = -1;  // Return a special value to signify an undefined result (e.g., 0^0 or 0^negative)
                                }
                                }
-                         
+
                                else {
                               // If the exponent is negative, convert it to positive for calculation
                               if (exp < 0) {
@@ -425,7 +426,7 @@ double power(int base, int exp) {
 
                                                 //Happy Number
 // Function to determine if a number is a "happy number"
-// A happy number is defined as a number that eventually reaches 1 
+// A happy number is defined as a number that eventually reaches 1
 // when replaced by the sum of the squares of its digits repeatedly.
 bool isHappy(int num) {
                           int sum = 0;  // Variable to store the sum of the squares of the digits
@@ -452,13 +453,13 @@ bool isHappy(int num) {
                       // Check if the resulting single-digit number is 1
                       if (num == 1) {
                       return true;  // The number is happy
-                      } 
+                      }
                       else {
                       return false;  // The number is not happy
                       }
                       }
 
-                                 
+
                                                 //Abundant NUMBER
 // Function to check if a number is abundant
 // A number is abundant if the sum of its proper divisors (excluding itself) is greater than the number itself
@@ -470,21 +471,21 @@ bool isAbundant(int num){
                                  else {
                                  return false ;  // The number is not abundant
                                  }
-}                            
-                           
+}
+
                                                 //DEFICIENT NUMBER
 // Function to check if a number is deficient
 // A number is deficient if the sum of its proper divisors (excluding itself) is less than the number
 bool isDeficient(int num){
                                 // Check if the sum of proper divisors (excluding the number itself) is less than or equal to the number
                                  if( sumDivisors(num)  <= 2*num ){
-                                 return true ;  The number is deficient
+                                 return true ;  //The number is deficient
                                  }
                                  else {
                                  return false ;  // The number is not deficient
                                  }
 }
-                                        
+
                                                 //SUM OF EVEN FIBONACCI NUMBERS
 // Function to calculate the sum of even Fibonacci numbers up to the nth Fibonacci number
 long sumEvenFibonacci(int num){
@@ -507,7 +508,7 @@ long sumEvenFibonacci(int num){
                                  }
                                  return sumfib ; // Return the sum of even Fibonacci numbers
 }
-                                       
+
                                                 //HARSHAD NUMBER
 // Function to check if a number is a Harshad (or Niven) number
 // A number is Harshad if it is divisible by the sum of its digits
@@ -524,7 +525,7 @@ bool isHarshad(int num){
                                                 //CATALAN NUMBER
 // Computes the nth Catalan number, which appears in combinatorial structures
 unsigned long catalanNumber(int n){
-                               
+
                               // Return 0 for invalid input
                               if (n < 0) {
                                  return 0;
@@ -534,7 +535,7 @@ unsigned long catalanNumber(int n){
                                 return Factorial(2 * n) / (Factorial(n + 1) * Factorial(n));
 }
 
-                                        
+
                                                 //PASCAL TRIANGLE
 // Prints the first n rows of Pascal's Triangle
 void printPascalTriangle(int n) {
@@ -545,12 +546,12 @@ void printPascalTriangle(int n) {
                                  }
                                  // Print values in the row n
                                  for (int j = 0; j <= i; j++) {
-                                 printf("%d", combination(i, j)) ;  // Print each combination value
+                                 printf("%d", Combination(i, j)) ;  // Print each combination value
                                  }
                                  printf("\n") ; // Move to the next row
                                  }
 }
-                                           
+
                                                 //BELL NUMBER
 // Calculates the nth Bell number, representing the number of ways to partition a set of n elements
 unsigned long bellNumber(int n){
@@ -567,7 +568,7 @@ unsigned long bellNumber(int n){
                                  sum+=Combination(n-1 ,k)*bellNumber(k);
                                  }
                                  return sum ;  // Return the calculated Bell number for n
-                                 
+
 }
 
                                                 //KAPREKAR NUMBER
@@ -604,7 +605,7 @@ bool isSmith(int num){
                                 int primefactors = 1;      // Product of prime factors
                                 int i = 2;                 // Start checking for prime factors from 2
 
-  
+
                                 // Edge case: Smith numbers must be composite; handle 0, 1, and prime numbers
                                 if (num <= 1 || isPrime(num)) {
                                     return false; // 0, 1, and prime numbers cannot be Smith numbers
@@ -624,7 +625,7 @@ bool isSmith(int num){
                                   // Check if the sum of the digits of the prime factors equals the sum of the digits of the original number
                                    return sumofprimefactors == SumOfDigits(primefactors);
                          }
-                              
+
                                                 //SUM OF PRIMES
 // Computes the sum of all prime numbers less than or equal to n
 int sumOfPrimes(int n){
@@ -638,8 +639,8 @@ int sumOfPrimes(int n){
                                  sum+=i ; // Add the prime number to the sum
                                  }
                                  }
-                
-                                 return sum ; // Return the total sum of prime numbers 
+
+                                 return sum ; // Return the total sum of prime numbers
 }
 
 

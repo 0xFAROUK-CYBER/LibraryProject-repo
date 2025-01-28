@@ -6,7 +6,6 @@
 
 //Extra
 int NumberOfDigits(int num);
-int Combination( int n ,int r);
 int absolute(int num);
 
 
@@ -18,6 +17,7 @@ bool isPalindrome( int num);
 bool isPrime( int num);
 int gcd( int a, int b);
 int lcm( int a, int b);
+int Combination( int n ,int r); //EXTRA FUNCTION
 long Factorial( int num);
 bool isEven( int num);
 
