@@ -478,7 +478,7 @@ bool isAbundant(int num){
 // A number is deficient if the sum of its proper divisors (excluding itself) is less than the number
 bool isDeficient(int num){
                                 // Check if the sum of proper divisors (excluding the number itself) is less than or equal to the number
-                                 if( sumDivisors(num)  <= 2*num ){
+                                 if( sumDivisors(num)  <= 2*num  && num != 0 ){
                                  return true ;  //The number is deficient
                                  }
                                  else {
