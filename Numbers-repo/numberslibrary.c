@@ -514,7 +514,7 @@ long sumEvenFibonacci(int num){
 // A number is Harshad if it is divisible by the sum of its digits
 bool isHarshad(int num){
                                  // Check if the number is divisible by the sum of its digits
-                                 if(num % SumOfDigits(num) == 0){
+                                 if((num % SumOfDigits(num) == 0 && num > 0) || num == 0 ){
                                  return true ; // The number is a Harshad number
                                  }
                                  else {
