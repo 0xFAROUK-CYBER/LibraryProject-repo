@@ -65,6 +65,9 @@ int SumOfDigits( int num){
 // Function to reverse the digits of a given number
 int ReverseNumber( int num){
                                  int digit=0 ,Reverse=0;
+                                 if(num<0){
+                                   return -1 ;       //as it is not cear what a reverse of a negative number means
+                                 }
                                                      // Loop to extract digits and buildng the reversed number
                                  while(num>0){
                                  digit=num%10;      // Extract the last digit
