@@ -162,7 +162,7 @@ left shifting, but in reverse, and only needing 2 for loops*/
            }
 }
 int binarySearch(int arr[], int size,int target){
-    !isSorted(arr, size) ? return -1: 
+    if(!isSorted(arr, size)){return -1;}
     int low = 0;
     int high = size - 1;
     while (high >= low) {
@@ -277,14 +277,7 @@ void mergeSort(int arr[], int left, int right){
         merge(arr, left, right, mid);
     }
 }  
-void quickSort(int arr[], int low, int high){
-    if(low < high){
-        int pivot = partition(arr, low, high);
-        quickSort(arr, low, pivot - 1);
-        quickSort(arr, pivot + 1, high);
-    }
-}
-int partition(int arr[], int low, int high){
+int partition(int arr[], int low, int high){ //will be used in the quicksort function
     int pivot = arr[high];
     int i = low - 1;
     for(int j = low; j < high; j++){
@@ -299,6 +292,25 @@ int partition(int arr[], int low, int high){
     arr[i + 1] = arr[high];
     arr[high] = temp;
     return i + 1;
+}
+void quickSort(int arr[], int low, int high){ //using recursion
+    if(low < high){
+        int pivott;
+        pivott = partition(arr, low, high);
+        quickSort(arr, low, pivott - 1);
+        quickSort(arr, pivott + 1, high);
+    }
+}
+
+void deleteElement(int arr[], int size, int target){
+        for(int i = 0; i < size; i++){
+            if(arr[i] == target){
+                for(int j = i; j < size - 1; j++){
+                    arr[j] = arr[j + 1];
+                }
+                break;
+            }
+        }
 }
 int findMissingNumber(int arr[], int size){ /* We will simply use a bruteforcing approach here,
 where we will run a for loop into each element of the array to check whether all of the numbers inside 
@@ -364,22 +376,13 @@ void findSubArrayWithSum(int arr[], int size, int sum){
             }
             if(subArraySum > sum){
                 subArraySum -= arr[j];
-                subArray[j] = NULL;
+                deleteElement(arr, size, arr[j]);
                 continue;
             }
         }
         }
     }
-void deleteElement(int arr[], int size, int *target){
-        for(int i = 0; i < size; i++){
-            if(arr[i] = *target){
-                for(int j = i; j < size; j++){
-                    arr[j] = arr[j + 1];
-                }
-                break;
-            }
-        }
-}
+
 void rearrangeAltenatePositiveNegative(int arr[], int size){
     int newArr[size];
         for(int i = 0; i < size; i++){
@@ -399,12 +402,9 @@ void rearrangeAltenatePositiveNegative(int arr[], int size){
                         }
                     }
                 }
-        for(int i = 0; i < size; i++){
-            if(newArr[i] == NULL){
-                newArr[i] = newArr[i + 1];
-            }
+    
         }
-        }
+        
         printArray(newArr, size);
         
     }
