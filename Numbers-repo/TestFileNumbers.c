@@ -12,10 +12,11 @@ int main(){
      selector_of_basic();
         printf("Enter your choice (0-32): ");  
         scanf("%d", &choice);  
-     testFunctions(choice) ;
-         Sleep(13000);  // Wait for 13 seconds (Windows)
         system("cls"); // Clear the console screen (Windows)
-     } while (choice != 0 || choice < 0);
+     testFunctions(choice) ;
+        Sleep(13000);  // Wait for 13 seconds (Windows)
+        system("cls"); // Clear the console screen (Windows)
+     } while (choice != 0);
 
 return 0;
 
