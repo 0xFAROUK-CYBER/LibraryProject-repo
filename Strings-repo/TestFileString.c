@@ -12,6 +12,7 @@ int main() {
         selector_of_string();
         printf("Enter your choice (0-24): ");
         scanf("%d", &choice);
+        system("cls"); // Clear the console screen (Windows)
         testStringFunctions(choice);
         Sleep(13000);  // Wait for 13 seconds (Windows)
         system("cls"); // Clear the console screen (Windows)
