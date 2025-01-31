@@ -23,6 +23,20 @@ return Length; // Return the total count as the string's length
  * it into the destination string (`dest`) until the null terminator (`\0`) is encountered.
  * After copying all characters, the function appends the null terminator to the destination
  * string to properly terminate it*/
+int countChar(const char* str, char ch){
+    if(str == NULL){ // Check for NULL string 
+        return 0; // Return 0 if the string is NULL
+    }
+        int counter = 0; // Initialize a counter to zero
+   // Loop through each character in the string
+    for (int i = 0; i < stringLength(str); i++) {
+      // Check if the current character matches the specified character
+        if (str[i] == ch) {
+            counter++; // Increment the counter if there's a match  
+        }
+    }
+    return counter;  // Return the final count 
+}
 void stringCopy(char* dest, const char* src){
 // Loop until the null terminator in the source string is encountered
 while( *src != '\0' ){
@@ -74,7 +88,7 @@ int stringCompare(const char* str1, const char* str2) {
  * 1. If the string pointer is `NULL` (indicating no valid string exists).
  * 2. If the first character of the string is the null terminator (`\0`), indicating an empty string*/
 bool isEmpty(char* str){
-return str == NULL||*str =='\0'// Check if the string is null or starts with the null terminator(ADDED THEN NULL CHECK TO MAKE THE FUNCTION MORE ROBUST AS THE STRING CAN BE ENTERED Uninitialized)
+return str == NULL||*str =='\0';// Check if the string is null or starts with the null terminator(ADDED THEN NULL CHECK TO MAKE THE FUNCTION MORE ROBUST AS THE STRING CAN BE ENTERED Uninitialized)
 }
 
                                                 //Reverse a String
@@ -226,8 +240,8 @@ if(stringLength(str1) != stringLength(str2)){
 }
                                  // Check the frequency of each character in the strings
 for(int i=0;i<Length;i++){
-if(countChar(str1,str1[i])  != countChar(str2,str1[i])   ||
-   countChar(str2,str2[i])  != countChar(str1,str2[i])){             // If the frequency doesn't match, they are not anagrams
+if(countChar(str1 ,str1[i])  != countChar(str2, str1[i])   ||
+   countChar(str2, str2[i])  != countChar(str1, str2[i])){             // If the frequency doesn't match, they are not anagrams
 return false;
 }
 }
@@ -400,17 +414,7 @@ strRotated[ 2*length1 ] ='\0';  // Null-terminate the concatenated string
                                           
                                                 //Count Specific Character 
 // Function to count the occurrences of a specified character in a string
-int countChar(const char* str, char ch){
-        int COUNTER = 0; // Initialize a counter to zero
-   // Loop through each character in the string
-    for (int i = 0; i < stringLength(str); i++) {
-      // Check if the current character matches the specified character
-        if (str[i] == ch) {
-            COUNTER++; // Increment the counter if there's a match  
-        }
-    }
-    return COUNTER;  // Return the final count 
-}
+
                                       
                                                 //Find and Replace 
 /*This function finds all occurrences of the find substring in the input string str and replaces them 
@@ -470,12 +474,29 @@ if(isPalindrome(Currentword)){
     }
      // Copy the longest palindrome found to the result
 stringCopy( result, Longestword);
+} 
 }
             
                                                 //String Permutations
 /* This function generates and prints all cyclic permutations (rotations) of the input string.
  * Each permutation is created by repeatedly rotating the string one position to the right.
  * The original string is preserved, and a copy is used for the rotations*/
+
+void stringRotation(char* str){
+int length=stringLength(str);// Get the length of the string
+char TEMP[2]={"\0"};         // Temporary storage for the last character
+TEMP[0]=str[length-1];       // Store the last character of the string
+    
+  // If the string is empty or has only one character, no rotation is needed
+    if (length <= 1) {
+        return;
+    }
+  // Shift all characters one position to the right
+for(int i=length-1;i>0;i--){
+str[i]=str[i-1];
+}
+str[0]=TEMP[0];            // Move the last character to the start of the string
+}
 void printPermutations(char* str){
 int length=stringLength(str); // Get the length of the string
 char strcopy[100]={"\0"};     // Create a copy of the input string
@@ -500,19 +521,3 @@ stringRotation(strcopy);      // Rotate the string to the right
 /* This function performs a right rotation on the input string by moving 
  * the last character to the beginning of the string and shifting all other 
  * characters one position to the right*/
-void stringRotation(char* str){
-int length=stringLength(str);// Get the length of the string
-char TEMP[2]={"\0"};         // Temporary storage for the last character
-TEMP[0]=str[length-1];       // Store the last character of the string
-    
-  // If the string is empty or has only one character, no rotation is needed
-    if (length <= 1) {
-        return;
-    }
-  // Shift all characters one position to the right
-for(int i=length-1;i>0;i--){
-str[i]=str[i-1];
-}
-str[0]=TEMP[0];            // Move the last character to the start of the string
-}
-
