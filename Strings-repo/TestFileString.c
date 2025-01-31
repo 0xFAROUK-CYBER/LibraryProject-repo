@@ -210,7 +210,7 @@ void testStringFunctions( int choice) {
                 scanf(" %c", &ch);  
                 printf("Count of '%c': %d\n", ch, countChar(str, ch));  
                 break;  
-            case 21:  
+        
             case 21:
                 printf("Enter a string: ");
                 scanf("%s", str);
