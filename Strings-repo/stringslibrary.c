@@ -208,22 +208,15 @@ return Marker;   //if i was found it would return i  ;  else it would return -1
 /* This function iterates through the input string and removes all spaces by shifting subsequent 
  * characters forward. It handles leading, trailing, and intermediate spaces. The function also 
  * adjusts the string length dynamically to ensure proper null-termination*/
-void removeWhitespaces(char* str){
-int Length=stringLength(str);  // Get the length of the string
-if(str[Length-1] == ' '){
-     str[Length-1]='\0';       // Null-terminate the string
-     Length-=1;                //reduce the length of the function
-}
-                              
-                              // Iterate through the string from the end to the beginning
-for(int i=Length-1;i>=0;i--){
-if(str[i] == ' '){           // Check if the character is a space
-for(int j=i;j<Length;j++ ){  // Shift all characters after the space one position to the left
-str[j]=str[j+1];  //to move the caracters after the space
-}
-Length-=1;           //reduce the length of the function
-}
-}
+void removeWhitespaces(char* str) {
+    int length = stringLength(str);
+    int j = 0; // Index for the new position in the string
+    for (int i = 0; i < length; i++) {
+        if (str[i] != ' ') { // If the character is not a space
+            str[j++] = str[i]; // Copy it to the new position
+        }
+    }
+    str[j] = '\0'; // Null-terminate the modified string
 }
  
  
