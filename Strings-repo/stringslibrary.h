@@ -7,6 +7,7 @@
                             //    Basic String Functions
 
 /*stringLength*/                                 int stringLength( const char* str);
+/*Count Specific Character*/                     int countChar(const char* str, char ch);
 /*Copy String*/                                  void stringCopy(char* dest, const char* src);                               
 /*Concatenate String*/                           void stringConcat(char* dest, const char* src);
 /*Compare Strings*/                              int stringCompare(const char* str1, const char* str2);
@@ -33,13 +34,12 @@
 /*String Compression*/                          void compressString(char* str, char* result);
 /*Find Longest Word*/                           void longestWord(char* str, char* result) ;
 /*String Rotation Check*/                       bool isRotation(char* str1, char* str2);
-/*Count Specific Character*/                    int countChar(const char* str, char ch);
 /*Find and Replace*/                            void findAndReplace(char* str, char* find, char* replace);
 /*Longest Palindromic Substring*/               void longestPalindrome(char* str, char* result);
+/*stringRotation*/                              void stringRotation(char* str);
 /*String Permutations*/                         void printPermutations(char* str);
 
                             //    Extra String Functions
-/*stringRotation*/                              void stringRotation(char* str);
 
 
 #endif // STRINGSLIBRARY_H_INCLUDED
