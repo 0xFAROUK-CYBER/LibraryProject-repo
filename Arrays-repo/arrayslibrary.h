@@ -29,11 +29,11 @@ void quickSort(int arr[], int size);
 void deleteElement(int arr[], int size,int target);
 int findMissingNumber(int arr[], int size);
 int findMissingNumberSum(int arr[], int size);
-void findParisWithSum(int arr[], int size);
+void findPairsWithSum(int arr[], int size, int sum);
 void findSubArrayWithSum(int arr[], int size);
 void rearrangeAlternatePositiveNegative(int arr[], int size);
 int findMajorityElement(int arr[], int size);
 void findDuplicates(int arr[], int size);
-void findIntersection(int arr[], int size);
-void findUnion(int arr[], int size);
+void findIntersection(int arr1[], int size1, int arr2[], int size2);
+void findUnion(int arr1[], int size1, int arr2[], int size2);
 #endif 

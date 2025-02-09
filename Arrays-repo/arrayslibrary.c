@@ -46,7 +46,7 @@ int sumArray(int arr[], int size){  /*Basically a for loop that sums every eleme
     }
     return sum;
 }
-double avverageArray(int arr[], int size){ //uses the sum function, then divides the sum by the size of the array to calculate the avg
+double averrageArray(int arr[], int size){ //uses the sum function, then divides the sum by the size of the array to calculate the avg
     int sum = sumArray(arr, size);
     return sum/size;
 }
@@ -383,7 +383,7 @@ void findSubArrayWithSum(int arr[], int size, int sum){
         }
     }
 
-void rearrangeAltenatePositiveNegative(int arr[], int size){
+void rearrangeAlternatePositiveNegative(int arr[], int size){
     int newArr[size];
         for(int i = 0; i < size; i++){
                 if(i % 2 == 0){
