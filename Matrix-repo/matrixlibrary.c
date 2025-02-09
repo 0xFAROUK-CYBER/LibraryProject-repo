@@ -5,7 +5,7 @@
 
 // Basic Matrix Functions
 
-void initializeMatris(int rows, int cols, int matrix[rows][cols], int value){ /*A simple for loop that will
+void initializeMatrix(int rows, int cols, int matrix[rows][cols], int value){ /*A simple for loop that will
 Asign the value given to a the current matrix colomn*/
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
@@ -97,7 +97,7 @@ is equal to 0
     }
     return true;
 }
-bool isDiagonal(int size, int matrix[size][size]){
+bool isDiagonalMatrix(int size, int matrix[size][size]){
 /*We have already used the same thing in the identity matrix, just using the second if statement*/
     for(int i = 0; i < size; i++){
         for(int j = 0; j < size; j++){
@@ -266,14 +266,6 @@ transposeMatrix(size, size, theCofactor, adjoint);
 }
 
 
-int matrixRank(int rows, int cols, int matrix[rows][cols], int rank){
-    if(rows == cols){ //meaning the matrix is a square matrix, thus we can simply calculate
-    /* the largest determinant for the square submatrices inside the og matrix*/
-
-    
-        return 0;
-    }
-}
 
 // Special Matrix Operations
 void swap(int *x, int *y){ //used fin the rotate matrix (which we have dealt with in the last td session)
