@@ -17,10 +17,10 @@ int main() {
                             {
                                 int size,value;
                                 printf("Enter the size of the array: ");
-                                scanf("%d",&size);
+                                scanf("%d", &size);
                                 int arr[size];
                                 printf("Enter the value to initialize the array with: ");
-                                scanf("%d",&value);
+                                scanf("%d", &value);
                                 initializeArray(arr,size,value);
                                 printf("Initialized array: \n");
                                 for(int i=0;i<size;i++)
@@ -97,7 +97,7 @@ int main() {
                                     
                                 }
                                 
-                                printf(" the average of array is :%.2f",averageArray(arr,size));
+                                printf(" the average of array is :%.2f",averrageArray(arr,size));
                                 break;
                             }
                             case 7:
@@ -423,7 +423,7 @@ int size, target, i;
                                 }
                                 printf("Enter the target sum: ");
                                 scanf("%d",&sum);
-                                findSubArrayWithSum(arr,size,sum);
+                                findSubArrayWithSum(arr,size);
                                 break;
                             }
                             case 23:
@@ -460,21 +460,9 @@ int size, target, i;
                                 else printf("Majority element is: %d\n",result);
                                break; 
                             }
+
+                            
                             case 25:
-                            { 
-                                int arr[100],size;
-                                printf("Enter array size: ");
-                                scanf("%d",&size);
-                                printf("Enter array elements: ");
-                                for(int i=0;i<size;i++)
-                                {
-                                    scanf("%d",&arr[i]);
-                                }
-                            	
-printf("the longest Increasing Subsequence of the array is %d",longestIncreasingSubsequence(arr,size));
-                                break;
-                            }
-                            case 26:
                             {
                             	 int arr[100],size;
                                 printf("Enter array size: ");
@@ -487,7 +475,7 @@ printf("the longest Increasing Subsequence of the array is %d",longestIncreasing
                                 findDuplicates(arr,size);
                                 break;
                             }
-                            case 27:
+                            case 26:
                             {
                             	 int arr1[100],size1,arr2[100],size2;
                                 printf("Enter array size1: ");
@@ -508,7 +496,7 @@ printf("the longest Increasing Subsequence of the array is %d",longestIncreasing
 
                                 break;
                             }
-                            case 28:
+                            case 27:
                             {
                             	 int arr1[100],size1,arr2[100],size2;
                                 printf("Enter array size1: ");
