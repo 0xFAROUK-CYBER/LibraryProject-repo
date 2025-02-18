@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include <windows.h>  // For Sleep() function
-#include"matrixlibrary.h"
+#include"arrayslibrary.h"
 
 
 
